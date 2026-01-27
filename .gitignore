@@ -1,0 +1,40 @@
+
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Entorno virtual
+venv/
+env/
+VSCONPY/
+.venv/
+
+# Modelos (muy pesados)
+*.pkl
+*.h5
+*.model
+
+# Coverage
+.pytest_cache/
+htmlcov/
+.coverage
+
+# IDE
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Env
+.env
+
+# No subir README.txt
+README.txt
