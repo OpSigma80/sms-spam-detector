@@ -1,3 +1,6 @@
+<img width="1826" height="895" alt="Captura de pantalla 2026-11-04 154029" src="https://github.com/user-attachments/assets/7704cbb2-2c5f-4564-9773-f30d878e6885" />
+
+
 # 📱 SMS Spam Classification with Machine Learning
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
