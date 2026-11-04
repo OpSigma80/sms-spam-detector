@@ -13,8 +13,8 @@ st.set_page_config(
 )
 
 # Título
-st.title("📱 Detector de Spam en SMS")
-st.markdown("### Clasifica mensajes SMS como HAM o SPAM usando Machine Learning")
+st.title("📱 SMS Spam Detector")
+st.markdown("### Classify SMS messages as HAM or SPAM using Machine Learning")
 
 # Cargar modelo
 @st.cache_resource
@@ -35,60 +35,60 @@ def load_model():
 vectorizer, model = load_model()
 parser = SMSParser()
 
-# Input del usuario
-mensaje = st.text_area(
-    "Escribe o pega un mensaje SMS:",
+# User input
+message = st.text_area(
+    "Type or paste an SMS message:",
     height=150,
-    placeholder="Ejemplo: Congratulations! You won a free iPhone..."
+    placeholder="Example: Congratulations! You won a free iPhone..."
 )
 
-# Botón de predicción
-if st.button("🔍 Analizar Mensaje", type="primary"):
+# Prediction button
+if st.button("🔍 Analyze Message", type="primary"):
     if vectorizer is None or model is None:
-        st.error("Modelo no disponible. Ejecuta `python procesamiento.py` para entrenarlo primero.")
-    elif mensaje:
-        # Procesar
-        with st.spinner("Analizando..."):
-            msg_procesado = parser.parse(mensaje)
-            msg_vectorizado = vectorizer.transform([msg_procesado]).toarray()
-            prediccion = model.predict(msg_vectorizado)[0]
+        st.error("Model unavailable. Run `python procesamiento.py` to train it first.")
+    elif message:
+        # Process
+        with st.spinner("Analyzing..."):
+            processed_message = parser.parse(message)
+            message_vector = vectorizer.transform([processed_message]).toarray()
+            prediction = model.predict(message_vector)[0]
         
-        # Mostrar resultado
-        if prediccion == "spam":
-            st.error("🚨 **¡SPAM DETECTADO!**")
-            st.warning("Este mensaje parece ser spam o phishing.")
+        # Show result
+        if prediction == "spam":
+            st.error("🚨 **SPAM DETECTED!**")
+            st.warning("This message appears to be spam or phishing.")
         else:
-            st.success("✅ **Mensaje Legítimo (HAM)**")
-            st.info("Este mensaje parece ser seguro.")
+            st.success("✅ **Legitimate Message (HAM)**")
+            st.info("This message appears to be safe.")
         
-        # Detalles técnicos
-        with st.expander("📊 Ver detalles del procesamiento"):
-            st.write(f"**Mensaje original:** {mensaje}")
-            st.write(f"**Procesado:** {msg_procesado}")
-            st.write(f"**Predicción:** {prediccion.upper()}")
+        # Technical details
+        with st.expander("📊 View processing details"):
+            st.write(f"**Original message:** {message}")
+            st.write(f"**Processed:** {processed_message}")
+            st.write(f"**Prediction:** {prediction.upper()}")
     else:
-        st.warning("⚠️ Por favor escribe un mensaje primero.")
+        st.warning("⚠️ Please enter a message first.")
 
-# Sidebar con información
+# Information sidebar
 with st.sidebar:
-    st.header("ℹ️ Información del Modelo")
-    st.metric("Accuracy", "No publicada")
-    st.metric("Modelo", "SVM + TF-IDF")
+    st.header("ℹ️ Model Information")
+    st.metric("Accuracy", "Not published")
+    st.metric("Model", "SVM + TF-IDF")
     st.metric("Dataset", "5,574 SMS")
     
     st.markdown("---")
-    st.markdown("### 📚 Acerca de")
+    st.markdown("### 📚 About")
     st.markdown("""
-    Este clasificador usa:
+    This classifier uses:
     - **SVM** (Support Vector Machine)
     - **TF-IDF** Vectorization
-    - **NLP** para procesar texto
+    - **NLP** for text processing
     """)
     
     st.markdown("---")
-    st.markdown("**Creado por:** Israel Sanchez")
+    st.markdown("**Created by:** Israel Sanchez")
     st.markdown("[GitHub](https://github.com/OpSigma80)")
 
 # Footer
 st.markdown("---")
-st.caption("⚠️ Nota: El modelo está entrenado con SMS en inglés. Los resultados pueden variar con mensajes en otros idiomas.")
+st.caption("⚠️ Note: The model is trained on English SMS messages. Results may vary for messages in other languages.")
