@@ -1,5 +1,5 @@
 """
-Pruebas para la aplicación Flask (app.py)
+Pruebas históricas de la aplicación web (app.py)
 
 Estas pruebas verifican que los endpoints de la aplicación web
 funcionen correctamente.
@@ -12,7 +12,7 @@ import os
 # Agregar el directorio raíz al path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Intentar importar la app Flask
+# Intentar importar la app Streamlit
 try:
     from app import app
     APP_DISPONIBLE = True
@@ -21,8 +21,8 @@ except ImportError:
 
 
 @pytest.mark.skipif(not APP_DISPONIBLE, reason="app.py no disponible")
-class TestFlaskApp:
-    """Pruebas para la aplicación Flask"""
+class TestStreamlitApp:
+    """Pruebas de la estructura de la aplicación Streamlit"""
     
     @pytest.fixture
     def client(self):
@@ -44,8 +44,8 @@ class TestFlaskApp:
 
 
 @pytest.mark.skipif(not APP_DISPONIBLE, reason="app.py no disponible")
-class TestAPIEndpoints:
-    """Pruebas para endpoints de la API (si existen)"""
+class TestAppPlaceholders:
+    """Placeholders pendientes para probar la interfaz Streamlit"""
     
     @pytest.fixture
     def client(self):

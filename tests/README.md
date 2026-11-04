@@ -2,13 +2,16 @@
 
 ## 📋 Contenido
 
-Este directorio contiene todas las pruebas automatizadas del proyecto.
+Este directorio contiene las pruebas automatizadas disponibles en el proyecto.
 
 ### Archivos:
 
-- **`test_preprocessing.py`** - Pruebas unitarias de funciones de preprocesamiento
-- **`test_model.py`** - Pruebas de integración del modelo y pipeline
-- **`test_app.py`** - Pruebas de la aplicación Flask
+- **`test_preprocessing.py`** - Pruebas históricas y placeholders de preprocesamiento
+- **`test_preprocessing_real.py`** - Pruebas funcionales del módulo independiente `preprocessing.py`
+- **`test_model.py`** - Pruebas que dependen de los artefactos generados por entrenamiento
+- **`test_app.py`** - Pruebas históricas; la aplicación actual usa Streamlit, no Flask
+
+El resultado publicado anteriormente de `23 passed` era una afirmación histórica, no el resultado reproducible actual.
 
 ---
 
@@ -74,10 +77,10 @@ start htmlcov\index.html
 - Cargan modelos reales
 - Verifican el pipeline completo
 
-### 3. Pruebas de API (`test_app.py`)
-- Prueban endpoints de Flask
-- Verifican respuestas HTTP
-- Simulan requests de usuarios
+### 3. Pruebas de aplicación (`test_app.py`)
+- Comprueban archivos y estructura de la aplicación
+- Documentan el estado pendiente de las pruebas Streamlit
+- Incluyen algunos placeholders históricos que deben reemplazarse
 
 ---
 

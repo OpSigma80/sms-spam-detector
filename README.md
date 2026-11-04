@@ -1,22 +1,16 @@
 # 📱 SMS Spam Classification with Machine Learning
 
-![Python](https://img.shields.io/badge/python-3.13-blue)
-![Tests](https://img.shields.io/badge/tests-23%20passed-brightgreen)
-![Accuracy](https://img.shields.io/badge/accuracy-98.2%25-success)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![ML](https://img.shields.io/badge/ML-SVM-orange)
 
-> SMS spam/ham classifier using Support Vector Machine (SVM) with 98.2% accuracy.
+> Experimental SMS spam/ham classifier using TF-IDF and Support Vector Machine models. Published metrics must be regenerated from the training script before publication.
 
 ---
 
 ## 📊 Model Performance
 
-| Algorithm | Accuracy | Precision | Recall | F1-Score |
-|-----------|----------|-----------|--------|----------|
-| **SVM (TF-IDF)** | **98.2%** | **99%** | **89%** | **93%** |
-| Naive Bayes | 97.2% | 100% | 81% | 89% |
-| Logistic Regression | 96.2% | 98% | 76% | 85% |
+A reproducible metric table is not available yet. Run the training pipeline once and record the actual train/test split, model version, and evaluation results before publishing performance figures.
 
 ---
 
@@ -25,10 +19,10 @@
 - ✅ **Multiple classification algorithms** (SVM, Naive Bayes, Logistic Regression)
 - ✅ **Advanced text preprocessing** with NLTK (stemming, stopwords removal)
 - ✅ **TF-IDF vectorization** for text representation
-- ✅ **98.2% accuracy** on test set
-- ✅ **23 automated tests** with pytest
+- ✅ **TF-IDF preprocessing and vectorization**
+- ✅ **Automated pytest suite**
 - ✅ **Visualizations** of metrics and confusion matrices
-- ✅ **Flask web application** for real-time classification
+- ✅ **Streamlit web application** for real-time classification
 
 ---
 
@@ -117,7 +111,7 @@ run_tests.bat
 ```
 sms-spam-detector/
 │
-├── app.py                      # Flask application
+├── app.py                      # Streamlit application
 ├── procesamiento.py            # Model training pipeline
 ├── visualizaciones.py          # Visualization generation
 ├── requirements.txt            # Project dependencies
@@ -165,9 +159,9 @@ sms-spam-detector/
 
 | Model | Advantages | Disadvantages |
 |-------|-----------|---------------|
-| **SVM** ✅ | Best accuracy (98.2%), robust | Slower training |
-| Naive Bayes | Very fast, simple | Lower recall (81%) |
-| Logistic Regression | Interpretable | Lower accuracy (96.2%) |
+| **SVM** | Candidate model for TF-IDF data | Training and benchmark metrics must be regenerated |
+| Naive Bayes | Fast baseline | Requires a reproducible comparison |
+| Logistic Regression | Interpretable baseline | Requires a reproducible comparison |
 
 ### 4. Evaluation
 
@@ -216,7 +210,7 @@ sms-spam-detector/
 - **seaborn** - Statistical visualizations
 
 ### Web & Testing
-- **Flask** - Web framework
+- **Streamlit** - Web framework
 - **pytest** - Testing framework
 - **pytest-cov** - Code coverage
 
@@ -239,7 +233,7 @@ The project includes **23 automated tests** covering:
 - Model performance
 
 ### Application Tests (`test_app.py`)
-- Flask endpoints
+- Streamlit application structure and startup behavior
 - Error handling
 - Response validation
 
@@ -248,7 +242,7 @@ The project includes **23 automated tests** covering:
 pytest tests/ -v
 
 # Expected output:
-# ======================== 23 passed, 9 skipped ========================
+# Run pytest locally and publish a reproducible result only after verification
 ```
 
 ---

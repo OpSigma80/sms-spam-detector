@@ -1,6 +1,9 @@
-import streamlit as st
 import pickle
-from procesamiento import SMSParser
+from pathlib import Path
+
+import streamlit as st
+
+from preprocessing import SMSParser
 
 # Configuración de la página
 st.set_page_config(
@@ -16,10 +19,17 @@ st.markdown("### Clasifica mensajes SMS como HAM o SPAM usando Machine Learning"
 # Cargar modelo
 @st.cache_resource
 def load_model():
-    with open('tfidf_vectorizer.pkl', 'rb') as f:
-        vectorizer = pickle.load(f)
-    with open('svm_model.pkl', 'rb') as f:
-        model = pickle.load(f)
+    project_dir = Path(__file__).resolve().parent
+    vectorizer_path = project_dir / "tfidf_vectorizer.pkl"
+    model_path = project_dir / "svm_model.pkl"
+
+    if not vectorizer_path.exists() or not model_path.exists():
+        return None, None
+
+    with vectorizer_path.open("rb") as file:
+        vectorizer = pickle.load(file)
+    with model_path.open("rb") as file:
+        model = pickle.load(file)
     return vectorizer, model
 
 vectorizer, model = load_model()
@@ -34,7 +44,9 @@ mensaje = st.text_area(
 
 # Botón de predicción
 if st.button("🔍 Analizar Mensaje", type="primary"):
-    if mensaje:
+    if vectorizer is None or model is None:
+        st.error("Modelo no disponible. Ejecuta `python procesamiento.py` para entrenarlo primero.")
+    elif mensaje:
         # Procesar
         with st.spinner("Analizando..."):
             msg_procesado = parser.parse(mensaje)
@@ -60,7 +72,7 @@ if st.button("🔍 Analizar Mensaje", type="primary"):
 # Sidebar con información
 with st.sidebar:
     st.header("ℹ️ Información del Modelo")
-    st.metric("Accuracy", "98.21%")
+    st.metric("Accuracy", "No publicada")
     st.metric("Modelo", "SVM + TF-IDF")
     st.metric("Dataset", "5,574 SMS")
     
