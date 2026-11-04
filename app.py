@@ -86,8 +86,8 @@ with st.sidebar:
     """)
     
     st.markdown("---")
-    st.markdown("**Creado por:** Tu Nombre")
-    st.markdown("[GitHub](https://github.com/tu-usuario) | [LinkedIn](https://linkedin.com/in/tu-perfil)")
+    st.markdown("**Creado por:** Israel Sanchez")
+    st.markdown("[GitHub](https://github.com/OpSigma80)")
 
 # Footer
 st.markdown("---")
