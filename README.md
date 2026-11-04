@@ -77,7 +77,7 @@ python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt')"
 ### Train the Model
 
 ```bash
-python procesamiento.py
+python train_model.py
 ```
 
 This command:

@@ -1,0 +1,44 @@
+{
+  "accuracy": 0.9847533632286996,
+  "confusion_matrix": [
+    [
+      957,
+      9
+    ],
+    [
+      8,
+      141
+    ]
+  ],
+  "classification_report": {
+    "ham": {
+      "precision": 0.9917098445595854,
+      "recall": 0.9906832298136646,
+      "f1-score": 0.9911962713619886,
+      "support": 966.0
+    },
+    "spam": {
+      "precision": 0.94,
+      "recall": 0.9463087248322147,
+      "f1-score": 0.9431438127090301,
+      "support": 149.0
+    },
+    "accuracy": 0.9847533632286996,
+    "macro avg": {
+      "precision": 0.9658549222797927,
+      "recall": 0.9684959773229397,
+      "f1-score": 0.9671700420355094,
+      "support": 1115.0
+    },
+    "weighted avg": {
+      "precision": 0.9847997397709054,
+      "recall": 0.9847533632286996,
+      "f1-score": 0.9847749114164362,
+      "support": 1115.0
+    }
+  },
+  "train_messages": 4459,
+  "test_messages": 1115,
+  "vocabulary_size": 5234,
+  "random_state": 42
+}

@@ -7,6 +7,10 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
 
+ENGLISH_STOPWORDS = frozenset(stopwords.words("english"))
+STEMMER = PorterStemmer()
+
+
 class HTMLStripper(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -27,16 +31,14 @@ class SMSParser:
         return re.sub(r"https?://\S+|www\.\S+", " ", text)
 
     def clean_text(self, tokens):
-        stemmer = PorterStemmer()
-        english_stopwords = set(stopwords.words("english"))
         punct = set(string.punctuation) | {"\n", "\t"}
 
         return [
-            stemmer.stem(token.lower())
+            STEMMER.stem(token.lower())
             for token in tokens
-            if token.lower() not in english_stopwords
+            if token.lower() not in ENGLISH_STOPWORDS
             and token.lower() not in punct
-            and token.isalnum()
+            and token.isalpha()
         ]
 
     def parse(self, text):
