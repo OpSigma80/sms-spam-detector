@@ -1,4 +1,4 @@
-A Streamlit demo that classifies English SMS messages as spam or ham using text preprocessing and scikit-learn models.
+# A Streamlit demo that classifies English SMS messages as spam or ham using text preprocessing and scikit-learn models.
 
 
 <img width="1844" height="918" alt="imagen" src="https://github.com/user-attachments/assets/bdc51ad9-fff3-4501-96f4-00c00a20ef17" />
