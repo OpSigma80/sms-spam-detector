@@ -307,7 +307,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - GitHub: (https://github.com/OpSigma80)
 - LinkedIn: (https://linkedin.com/in/israel-sanchez-rovira)
-- Email: roviraisrael@gmail.com.com
+- Email: roviraisrael@gmail.com
 
 ---
 
